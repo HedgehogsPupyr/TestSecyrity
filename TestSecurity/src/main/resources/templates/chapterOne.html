@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+<head>
+    <title> Make ID yourself </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <link href="/docs/5.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+</head>
+
+<body >
+<header th:insert="blocks/header :: header"> </header>
+<!--Тег хранит в себе картинку домика на главной странице. Атрибут fill - цвет домика -->
+<div th:insert="blocks/icons :: icons"> </div>
+
+<main>
+    <!--Заголовок сайта.-->
+    <section class="py-5 text-center container">
+        <div class="row py-lg-5">
+            <div class="col-lg-6 col-md-8 mx-auto">
+                <h1 class="fw-light">Глава один</h1>
+                <p class="lead text-body-secondary">В ней Вы узнаете, что можно отправлять файл на сервер в формате ПДФ и, данными с того файла, заполнять другие документы.</p>
+                           </div>
+        </div>
+    </section>
+    <!--Основное тело сайта.-->
+    <div class="d-flex flex-column flex-md-row p-4 gap-4 py-md-5 align-items-center justify-content-center">
+        <div class="list-group">
+            <div class="position-relative p-5 text-center text-muted bg-body border border-dashed rounded-5">
+                <svg class="bi mt-5 mb-3" width="48" height="48"><use xlink:href="#check2-circle"></use></svg>
+                <h3 class="text-body-emphasis">Загрузите свой файл ПДФ сюда</h3>
+                <p class="col-lg-6 mx-auto mb-4">
+                    После загрузки файла, Вам останется выбрать, какой документ и в каком формате скачать обратно
+                </p>
+                <form method="post" enctype="multipart/form-data" action="/chapterOne/add" >
+                    <input type="file" class="form-control form-control-lg" aria-label="Large file input example" name="file">
+                    <button class="btn btn-primary px-5 mb-5" type="submit">
+                        Call to action
+                    </button>
+                </form>
+            </div>
+        </div>
+        <p data-th-text="file"> </p>
+
+        <div class="list-group list-group-checkable d-grid gap-2 border-0" >
+            <div >
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Название файла</th>
+                        <th scope="col">Тип файла</th>
+                        <th scope="col">Скачать</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Ведомость объемов     </td>
+                        <td>.doc</td>
+                        <td><a class="btn btn-light" href="#"> Скачать</a></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Спецификация  </td>
+                        <td>.xls</td>
+                        <td><a class="btn btn-light" href="#"> Скачать</a></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+<footer th:insert="blocks/footer :: footer" > </footer>
+</body>
+
+</html>
